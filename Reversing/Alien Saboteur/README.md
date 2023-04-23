@@ -184,8 +184,34 @@ Well at that point my solution becomes a bit stupid because I could have worked 
 
 ### First how the `vm_*` functions work ?
 
-#### vm_add
+It took me a while to figure out how each of this function works but in case you want to dive a bit into the decompiled code of the `bin` file here are a few insights
 
+#### vm_putc `char`
+- Prints to stdout the `char`
+
+#### vm_input `reg`
+- Takes a char from stdin and puts it into `reg`
+
+#### vm_mov `reg` `value`
+- Put `value` into the chosen `reg`
+
+#### vm_add `register_result` `reg_1` `reg_2`
+- Store the result of `reg_1`+`reg_2` in `reg_result`
+
+#### vm_addi `register_result` `reg_1` `immediate_value`
+- Store the result of `reg_1`+`immediate_value` in `reg_result`
+
+#### vm_xor `register_result` `reg_1` `reg_2`
+- Store the result of `reg_1`^`reg_2` in `reg_result`
+
+#### vm_load `reg_1` `reg_2`
+- Load the value at the address contained in `reg_2` inside `reg_1`
+
+#### vm_store `reg_1` `reg_2`
+- Store the content of `reg_2` at the address in `reg_1`
+
+#### vm_jle `reg_1` `reg_2` `address`
+- If `reg_1` < `reg_2` jump at `address` (note that the address in the `bin` files are just line numbers)
 
 ### The keycode :
 
@@ -251,7 +277,6 @@ $ hexdump -C ./bin
 00001280  36 31 5d 00 00 00 00 00  00 00 00 00 00 00 00 00  |61].............|
 00001290  00 00 00 00 00 00 00 00  00 00 00 00 00 00 00 00  |................|
 *
-
 ```
 And at address 1004 there is a hex string and once we XOR it with the `0xa9` byte we find a printable string.
 This gives us the first code (sadly not the only one) :
@@ -457,3 +482,11 @@ $ ./keygen.py
 ....
 b'HTB{5w1rl_4r0und_7h3_4l13n_l4ngu4g3}'
 ```
+
+## Conclusion
+
+That was a very nice challenge, It took me a while because i figured out things on the fly every time something was not clicking. I think if I had took more time in reversing the `vm_*` functions I could have made a much better python decompiler for the challenge but still that's probably the hardest Cracking challenge I have done so far so I'm still happy about it. I liked the constant progression that you get through the challenge even though it takes a long time to do everything, the progress is very linear, you never really get hardstuck which was very enjoyable.
+
+I am sorry for the ugly decompiled code and the manual comments but I hope the write-up is still understandable without every aspect of the *alien gibberish*.
+
+Xlitoni for the Supwn team
