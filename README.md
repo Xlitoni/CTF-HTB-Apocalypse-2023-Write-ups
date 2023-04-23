@@ -1,7 +1,9 @@
 # CTF-HTB-Apocalypse-2023-Write-ups
 Write-ups of the challenges I was able to complete with my team Supwn
 
-We succesfully completed 44 challenges out of the 74 of the CTF with only 3 members :smile:
+We succesfully completed 44 challenges out of the 74 of the CTF with only 3 members in our team :smile:
+
+![Success](./Final_standing.png "Final_score")
 
 ## Warmup
 - [x] Welcome!
@@ -48,7 +50,7 @@ We succesfully completed 44 challenges out of the 74 of the CTF with only 3 memb
 - [x] Needle in a Haystack
 - [x] Hunting License
 - [x] Cave System
-- [x] Aliean Saboteaur
+- [x] Alien Saboteur
 - [x] Somewhat Linear
 - [ ] Gimmick DSP
 - [ ] Vessel Cartographer
